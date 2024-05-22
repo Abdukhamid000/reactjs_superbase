@@ -9,7 +9,10 @@ function App() {
   });
 
   async function getCountries() {
-    const { data } = await supabase.from("countries").select();
+    const { data } = await supabase
+      .from("projects")
+      .select("*")
+      .eq("user_id", "435a9ded-ad3c-4db0-8a90-0e388be2acea");
     setCountries(data);
   }
 
